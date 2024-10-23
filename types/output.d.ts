@@ -16,6 +16,7 @@ import {
 import { SqlOutput, SqlOutputOptions } from './sql';
 import { StorageBlobOutput, StorageBlobOutputOptions, StorageQueueOutput, StorageQueueOutputOptions } from './storage';
 import { TableOutput, TableOutputOptions } from './table';
+import { WebPubSubOutput, WebPubSubOutputOptions } from './webpubsub';
 
 /**
  * [Link to docs and examples](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-output?&pivots=programming-language-javascript)
@@ -66,6 +67,11 @@ export function cosmosDB(options: CosmosDBOutputOptions): CosmosDBOutput;
  * [Link to docs and examples](https://docs.microsoft.com/azure/azure-functions/functions-bindings-azure-sql-output?pivots=programming-language-javascript)
  */
 export function sql(options: SqlOutputOptions): SqlOutput;
+
+/**
+ * [Link to docs and examples](https://docs.microsoft.com/azure/azure-functions/functions-bindings-web-pubsub-output?pivots=programming-language-javascript)
+ */
+export function webPubSub(options: WebPubSubOutputOptions): WebPubSubOutput;
 
 /**
  * A generic option that can be used for any output type
