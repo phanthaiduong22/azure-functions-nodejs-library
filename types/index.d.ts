@@ -26,6 +26,7 @@ export * from './table';
 export * from './timer';
 export * as trigger from './trigger';
 export * from './warmup';
+export * from './webpubsub';
 
 /**
  * Void if no `return` output is registered

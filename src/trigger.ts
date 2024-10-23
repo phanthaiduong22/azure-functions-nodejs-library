@@ -26,6 +26,8 @@ import {
     TimerTriggerOptions,
     WarmupTrigger,
     WarmupTriggerOptions,
+    WebPubSubTrigger,
+    WebPubSubTriggerOptions,
 } from '@azure/functions';
 import { addBindingName } from './addBindingName';
 
@@ -105,6 +107,13 @@ export function sql(options: SqlTriggerOptions): SqlTrigger {
     return addTriggerBindingName({
         ...options,
         type: 'sqlTrigger',
+    });
+}
+
+export function webPubSub(options: WebPubSubTriggerOptions): WebPubSubTrigger {
+    return addTriggerBindingName({
+        ...options,
+        type: 'webPubSubTrigger',
     });
 }
 
