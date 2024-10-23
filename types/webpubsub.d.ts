@@ -1,7 +1,16 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the MIT License.
 
-import { FunctionInput, FunctionOutput, FunctionTrigger } from './index';
+import { FunctionInput, FunctionOptions, FunctionOutput, FunctionResult, FunctionTrigger } from './index';
+import { InvocationContext } from './InvocationContext';
+
+export type WebPubSubHandler = (message: unknown, context: InvocationContext) => FunctionResult;
+
+export interface WebPubSubFunctionOptions extends WebPubSubTriggerOptions, Partial<FunctionOptions> {
+    handler: WebPubSubHandler;
+
+    trigger?: WebPubSubTrigger;
+}
 
 export interface WebPubSubTriggerOptions {
     /**
@@ -42,13 +51,14 @@ export interface WebPubSubTriggerOptions {
      */
     connection?: string | null;
 }
+
 export type WebPubSubTrigger = FunctionTrigger & WebPubSubTriggerOptions;
 
 export interface WebPubSubConnectionInputOptions {
     /**
      * Required - Variable name used in function code for input connection binding object.
      */
-    name?: string;
+    name: string;
 
     /**
      * Required - The name of the Web PubSub hub for the function to be triggered.

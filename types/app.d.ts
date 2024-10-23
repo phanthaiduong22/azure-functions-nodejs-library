@@ -12,6 +12,7 @@ import { SqlFunctionOptions } from './sql';
 import { StorageBlobFunctionOptions, StorageQueueFunctionOptions } from './storage';
 import { TimerFunctionOptions } from './timer';
 import { WarmupFunctionOptions } from './warmup';
+import { WebPubSubFunctionOptions } from './webpubsub';
 
 /**
  * Optional method to configure the behavior of your app.
@@ -179,5 +180,12 @@ export function sql(name: string, options: SqlFunctionOptions): void;
  * @param options Configuration options describing the inputs, outputs, and handler for this function
  */
 export function generic(name: string, options: GenericFunctionOptions): void;
+
+/**
+ * Registers a WebPubSub function in your app that will be triggered by WebPubSub events
+ * @param name The name of the function. The name must be unique within your app and will mostly be used for your own tracking purposes
+ * @param options Configuration options describing the inputs, outputs, and handler for this function
+ */
+export function webPubSub(name: string, options: WebPubSubFunctionOptions): void;
 
 export * as hook from './hooks/registerHook';
